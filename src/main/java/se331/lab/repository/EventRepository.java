@@ -5,6 +5,6 @@ import se331.lab.entity.Event;
 
 import java.util.List;
 
-public interface EventRepository extends CrudRepository<Event, Long> {
+public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findAll();
 }
