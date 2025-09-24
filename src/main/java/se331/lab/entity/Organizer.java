@@ -16,6 +16,7 @@ public class Organizer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
-    String organizationName;
-    String address;
+    String name;
+    String description;
+    String contactEmail;
 }

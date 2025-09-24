@@ -21,50 +21,58 @@ public class OrganizerDaoImpl implements OrganizerDao {
         organizerList = new ArrayList<>();
         organizerList.add(Organizer.builder()
                 .id(1L)
-                .organizationName("Animal Welfare Society")
-                .address("123 Pet Street, Meow Town, MT 12345")
+                .name("Animal Welfare Society")
+                .description("Improving the wellbeing of domestic animals across the region")
+                .contactEmail("contact@awsociety.org")
                 .build());
 
         organizerList.add(Organizer.builder()
                 .id(2L)
-                .organizationName("Green Community Foundation")
-                .address("456 Garden Avenue, Flora City, FC 67890")
+                .name("Green Community Foundation")
+                .description("Community-driven projects that focus on urban gardening and sustainability")
+                .contactEmail("hello@greencommunity.org")
                 .build());
 
         organizerList.add(Organizer.builder()
                 .id(3L)
-                .organizationName("Environmental Action Group")
-                .address("789 Ocean Drive, Playa Del Carmen, PDC 11111")
+                .name("Environmental Action Group")
+                .description("Grassroots organization organizing coastal cleanup events")
+                .contactEmail("team@eagroup.org")
                 .build());
 
         organizerList.add(Organizer.builder()
                 .id(4L)
-                .organizationName("Canine Rescue Network")
-                .address("321 Dog Lane, Woof Town, WT 22222")
+                .name("Canine Rescue Network")
+                .description("Rescuing and rehabilitating stray dogs before adoption")
+                .contactEmail("support@caninerescue.net")
                 .build());
 
         organizerList.add(Organizer.builder()
                 .id(5L)
-                .organizationName("Food Bank Alliance")
-                .address("654 Hunger Road, Tin City, TC 33333")
+                .name("Food Bank Alliance")
+                .description("Coordinating food donations for low-income families")
+                .contactEmail("info@foodbankalliance.org")
                 .build());
 
         organizerList.add(Organizer.builder()
                 .id(6L)
-                .organizationName("Highway Cleanup Initiative")
-                .address("987 Highway 50, Clean City, CC 44444")
+                .name("Highway Cleanup Initiative")
+                .description("Volunteer group keeping major commuter routes free from litter")
+                .contactEmail("cleanup@highwayinitiative.org")
                 .build());
 
         organizerList.add(Organizer.builder()
                 .id(7L)
-                .organizationName("Youth Development Center")
-                .address("147 Education Boulevard, Learning City, LC 55555")
+                .name("Youth Development Center")
+                .description("After-school programs supporting teens with tutoring and mentorship")
+                .contactEmail("office@youthdevcenter.org")
                 .build());
 
         organizerList.add(Organizer.builder()
                 .id(8L)
-                .organizationName("Senior Care Foundation")
-                .address("258 Wisdom Street, Elder Town, ET 66666")
+                .name("Senior Care Foundation")
+                .description("Providing companionship and assistance to elderly residents")
+                .contactEmail("care@seniorfoundation.org")
                 .build());
     }
 

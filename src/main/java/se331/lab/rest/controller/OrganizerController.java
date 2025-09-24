@@ -36,8 +36,9 @@ public class OrganizerController {
         }
     }
 
-    @PostMapping("/organizers")
+    @PostMapping({"/organizers", "/organizations"})
     public ResponseEntity<?> addOrganizer(@RequestBody Organizer organizer){
+        organizer.setId(null);
         Organizer output = organizerService.save(organizer);
         return ResponseEntity.ok(output);
     }
