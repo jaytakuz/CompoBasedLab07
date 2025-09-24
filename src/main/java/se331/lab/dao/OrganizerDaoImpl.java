@@ -1,6 +1,10 @@
 package se331.lab.dao;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 import se331.lab.entity.Organizer;
 
@@ -8,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Profile("manual")
 public class OrganizerDaoImpl implements OrganizerDao {
     List<Organizer> organizerList;
 
@@ -69,24 +74,32 @@ public class OrganizerDaoImpl implements OrganizerDao {
     }
 
     @Override
-    public List<Organizer> getOrganizers(Integer pageSize, Integer page) {
+    public Page<Organizer> getOrganizers(Integer pageSize, Integer page) {
         pageSize = pageSize == null ? organizerList.size() : pageSize;
         page = page == null ? 1 : page;
         int firstIndex = (page - 1) * pageSize;
         int lastIndex = Math.min(firstIndex + pageSize, organizerList.size());
         
         if (firstIndex >= organizerList.size()) {
-            return new ArrayList<>();
+            return new PageImpl<>(new ArrayList<>(), PageRequest.of(page - 1, pageSize), organizerList.size());
         }
         
-        return organizerList.subList(firstIndex, lastIndex);
+        List<Organizer> pageContent = organizerList.subList(firstIndex, lastIndex);
+        return new PageImpl<>(pageContent, PageRequest.of(page - 1, pageSize), organizerList.size());
     }
 
     @Override
     public Organizer getOrganizer(Long id) {
         return organizerList.stream()
-                .filter(organizer -> organizer.getId() == id)
+                .filter(organizer -> organizer.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public Organizer save(Organizer organizer) {
+        organizer.setId((long) (organizerList.size() + 1));
+        organizerList.add(organizer);
+        return organizer;
     }
 }
